@@ -7,4 +7,4 @@ jobs:
     steps:
       - uses: actions/actions@v4
       - run: g++ main.cpp src/mult.cpp -o main
-      - run ./main 7 4
+      - run: ./main 7 4
