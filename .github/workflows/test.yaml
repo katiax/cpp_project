@@ -9,3 +9,26 @@ jobs:
       - run: sudo apt-get update && sudo apt-get install -y cmake
       - run: mkdir build && cmake -B build -S . && cmake --build build
       - run: ./build/tests
+      - uses: actions/upload-artifact@v4
+        with:
+          name: binaries
+          path: 
+            build/main
+            build/tests
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: binaries
+      - run: chmod +x tests && ./tests
+
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: binaries
+      - run: chmod +x main && ./main 7 3
+
