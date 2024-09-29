@@ -5,6 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkouts@v4
+      - uses: actions/checkout@v4
       - run: g++ main.cpp src/mult.cpp -o main
       - run: ./main 7 4
